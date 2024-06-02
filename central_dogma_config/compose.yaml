@@ -8,7 +8,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: '1.2'
           memory: 800M
     volumes:
       - ./central_config_1.json:/opt/centraldogma/conf/dogma.json
@@ -24,7 +24,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: '1.2'
           memory: 800M
     networks:
       central_dogma:
@@ -32,13 +32,13 @@ services:
   central_dogma3:
     image: line/centraldogma
     ports:
-     - "36463:36462"
+     - "36466:36462"
     volumes:
       - ./central_config_3.json:/opt/centraldogma/conf/dogma.json     
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: '1.2'
           memory: 800M
     networks:
       central_dogma:
