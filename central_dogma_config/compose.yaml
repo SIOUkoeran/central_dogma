@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  central_dogma1:
+    image: line/centraldogma
+    ports:
+     - "36461:36462"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 800M
+    volumes:
+      - ./central_config_1.json:/opt/centraldogma/conf/dogma.json
+    networks:
+      central_dogma:
+        ipv4_address: 172.21.0.2
+  central_dogma2:
+    image: line/centraldogma
+    ports:
+     - "36462:36462"
+    volumes:
+      - ./central_config_2.json:/opt/centraldogma/conf/dogma.json     
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 800M
+    networks:
+      central_dogma:
+        ipv4_address: 172.21.0.3
+  central_dogma3:
+    image: line/centraldogma
+    ports:
+     - "36463:36462"
+    volumes:
+      - ./central_config_3.json:/opt/centraldogma/conf/dogma.json     
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 800M
+    networks:
+      central_dogma:
+        ipv4_address: 172.21.0.4
+
+    
+networks:
+  central_dogma:
+    driver: bridge
+    ipam:
+     config:
+      - subnet: 172.21.0.0/16
+        gateway: 172.21.0.1

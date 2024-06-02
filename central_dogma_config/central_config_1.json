@@ -1,0 +1,73 @@
+{
+  "dataDir": "./data",
+  "ports": [
+    {
+      "localAddress": {
+        "host": "*",
+        "port": 36462
+      },
+      "protocols": [
+        "http"
+      ]
+    }
+  ],
+  "tls": null,
+  "trustedProxyAddresses": null,
+  "clientAddressSources": null,
+  "numWorkers": null,
+  "maxNumConnections": null,
+  "requestTimeoutMillis": null,
+  "idleTimeoutMillis": null,
+  "maxFrameLength": null,
+  "numRepositoryWorkers": 16,
+  "maxRemovedRepositoryAgeMillis": null,
+  "repositoryCacheSpec": "maximumWeight=134217728,expireAfterAccess=5m",
+  "webAppEnabled": true,
+  "webAppTitle": null,
+  "gracefulShutdownTimeout": {
+    "quietPeriodMillis": 1000,
+    "timeoutMillis": 10000
+  },
+  "replication" : {
+    "method": "ZOOKEEPER",
+    "serverId": 1,
+    "servers": {
+      "1": {
+        "host": "172.21.0.2",
+        "quorumPort": 36463,
+        "electionPort": 36464,
+        "groupId": null,
+        "weight": null
+      },
+      "2": {
+        "host": "172.21.0.3",
+        "quorumPort": 36463,
+        "electionPort": 36464,
+        "groupId": null,
+        "weight": null
+      },
+      "3": {
+        "host": "172.21.0.4",
+        "quorumPort": 36463,
+        "electionPort": 36464,
+        "groupId": null,
+        "weight": null
+      }
+    },
+    "additionalProperties": {},
+    "timeoutMillis": null,
+    "numWorkers": null,
+    "maxLogCount": null,
+    "minLogAgeMillis": null
+  },
+  "mirroringEnabled": true,
+  "numMirroringThreads": null,
+  "maxNumFilesPerMirror": null,
+  "maxNumBytesPerMirror": null,
+  "writeQuotaPerRepository": {
+    "requestQuota": 5,
+    "timeWindowSeconds": 1
+  },
+  "accessLogFormat": "common",
+  "authentication": null
+}
